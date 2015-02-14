@@ -22,7 +22,7 @@ make an else if statement that checks the words[0] to be the command
 @willie.module.commands('fellowshipbot')
 @willie.module.rate(300) #5 minute cooldown for one user
 def gt(bot, trigger):
-    operator = '#testingland' #this can also be a '#channel'
+    operator = '#TTFSInvasions' #this can also be a '#channel'
     words = trigger.group(2).split(' ')
     if words[0] == 'request':
         if len(words) >= 2:
