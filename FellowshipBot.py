@@ -18,18 +18,34 @@ make an else if statement that checks the words[0] to be the command
 
 """
 @willie.module.commands('fellowshipbot')
-@willie.module.rate(300) #5 minute cooldown for one user
+@willie.module.rate(60) #1 minute cooldown for one user
 def gt(bot, trigger):
     operator = '#TTFSInvasions' #this can also be a '#channel'
     words = trigger.group(2).split(' ')
     if words[0] == 'request':
         if len(words) >= 2:
             if len(words) == 3:
-                bot.reply('Your request has been submitted.')
-                bot.msg(operator, trigger.nick + ' has requested an invasion of ' + words[1] + ' ' + words[2])
+                cogs2 = ['pencil pusher', 'head hunter', 'corporate raider',
+                         'big cheese', 'bottom feeder', 'double talker',
+                         'ambulance chaser', 'back stabber', 'spin doctor',
+                         'leagal eagle', 'big wig', 'short change', 'penny pincher',
+                         'bean counter', 'number cruncher', 'money bags', 'loan shark',
+                         'robber baron', 'cold caller', 'name dropper', 'glad hander',
+                         'mover shaker', 'two face', 'mr. hollywood']
+                cogname = words[1] + ' ' + words[2]
+                if any(b == cogname for b in cogs2):
+                    bot.reply('Your request has been submitted.')
+                    bot.msg(operator, trigger.nick + ' has requested an invasion of ' + words[1] + ' ' + words[2])
+                else:
+                    bot.msg(trigger.nick, 'Please use the correct name for the cog, try again in one minute. a list can be found http://pastebin.com/3FxNti9T')
             else:
-                bot.reply('Your request has been submitted.')
-                bot.msg(operator, trigger.nick + ' has requested an invasion of ' + words[1])
+                cogs1 = ['flunky', 'yesman', 'micromanager', 'downsizer',
+                         'bloodsucker', 'tightwad', 'telemarketer', 'mingler']
+                if any(a == words[1] for a in cogs1):
+                    bot.reply('Your request has been submitted.')
+                    bot.msg(operator, trigger.nick + ' has requested an invasion of ' + words[1])
+                else:
+                    bot.msg(trigger.nick, 'Please use the correct name for the cog, try again in one minute. a list can be found http://pastebin.com/3FxNti9T')
         else:
             bot.msg(trigger.nick, 'Please include a cog name!')
 
@@ -48,7 +64,6 @@ def help(bot, trigger):
 def rules(bot, trigger):
     mods = ['Captain']
     if any(s == trigger.nick for s in mods):
-        print '3a'
         bot.msg('Chanserv', trigger.sender + ' KICK ' + trigger.group(2) + ' Please read the rules again before re-joining -> https://privatepaste.com/0bbd0fed32')
                    
     
