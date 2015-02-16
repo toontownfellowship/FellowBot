@@ -49,7 +49,7 @@ def rules(bot, trigger):
     mods = ['Captain']
     if any(s == trigger.nick for s in mods):
         print '3a'
-        bot.msg('#testingland', trigger.sender + ' KICK ' + trigger.group(2) + ' Please read the rules again before re-joining -> https://privatepaste.com/0bbd0fed32')
+        bot.msg('Chanserv', trigger.sender + ' KICK ' + trigger.group(2) + ' Please read the rules again before re-joining -> https://privatepaste.com/0bbd0fed32')
                    
     
     
