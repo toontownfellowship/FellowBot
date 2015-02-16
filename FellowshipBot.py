@@ -1,6 +1,4 @@
 import willie.module
-authservuser = 'user'
-authservpass = 'pass'
 """
 --------------------
 |LOGGING IN THE BOT|
@@ -37,8 +35,21 @@ def gt(bot, trigger):
 
 
 @willie.module.commands('auth')
+@willie.module.rate(18000) # 5 hour cooldown
 def auth(bot, trigger):
-    if trigger.nick == 'Captain':
-        bot.msg('authserv', authservuser + ' ' + authservpass)
-    if trigger.nick == 'The_Judge':
-        bot.msg('authserv', authservuser + ' ' + authservpass)
+    bot.write(['authserv auth fellowshipbot password'])
+
+
+@willie.module.commands('help')
+def help(bot, trigger):
+    bot.msg(trigger.nick, "Here's the commands for FellowshipBot! http://pastebin.com/8rQpVzdC")
+
+@willie.module.commands('rules')
+def rules(bot, trigger):
+    mods = ['Captain']
+    if any(s == trigger.nick for s in mods):
+        print '3a'
+        bot.msg('#testingland', trigger.sender + ' KICK ' + trigger.group(2) + ' Please read the rules again before re-joining -> https://privatepaste.com/0bbd0fed32')
+                   
+    
+    
