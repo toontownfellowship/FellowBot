@@ -60,10 +60,11 @@ def auth(bot, trigger):
 def help(bot, trigger):
     bot.msg(trigger.nick, "Here's the commands for FellowshipBot! http://pastebin.com/8rQpVzdC")
 
-@willie.module.require_privilege(OP)
 @willie.module.commands('rules')
 def rules(bot, trigger):
-    bot.msg('chanserv', trigger.sender + ' KICK ' + trigger.group(2) + ' Please read the rules again before re-joining -> https://privatepaste.com/0bbd0fed32')
+    mods = ['Captain']
+    if any(s == trigger.nick for s in mods):
+        bot.msg('Chanserv', trigger.sender + ' KICK ' + trigger.group(2) + ' Please read the rules again before re-joining -> https://privatepaste.com/0bbd0fed32')
                    
     
     
