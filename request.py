@@ -1,7 +1,7 @@
 import willie.module
 
 @willie.module.commands('request')
-@willie.module.rate(30) #1 minute cooldown for one user
+@willie.module.rate(30) #30 second cooldown for one user
 def gt(bot, trigger):
     operator = '#TTFSInvasions' #this can also be a '#channel'
     words = trigger.group(3).split(' ')
@@ -9,7 +9,7 @@ def gt(bot, trigger):
         if len(words) == 3:
             cogs3 = ['mover and shaker', 'mover & shaker',
             'the big cheese', 'the big cheeses']
-            cogname = words[0] + ' ' + words[1]
+            cogname = words[0] + ' ' + words[1] + ' ' + words[2]
             if any(b == cogname for b in cogs3):
                 bot.reply('Your invasion request has been submitted!')
                 bot.msg(operator, trigger.nick + ' has requested an invasion of ' + words[0] + ' ' + words[1] + '' + words[2])
