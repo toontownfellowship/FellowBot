@@ -1,7 +1,6 @@
-import willie.module
-from willie.modules.getmods import *
+from willie.module import *
 
-@willie.module.commands('quit')
+@require_privilege(OP)
+@commands('quit')
 def quit(bot, trigger):
-    if any(s == trigger.nick for s in mods):
-        bot.write(['quit', trigger.group(2)])
+    bot.write(['notice', trigger.sender, trigger.group(2)])

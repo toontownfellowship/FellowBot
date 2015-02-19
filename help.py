@@ -1,5 +1,4 @@
 import willie.module
 @willie.module.commands('help')
 def help(bot, trigger):
-    trigger.sender = trigger.nick
-    bot.reply("Here's the commands for FellowshipBot! http://pastebin.com/8rQpVzdC", notice=True)
+    bot.msg(trigger.nick, "The commands for Fellowshipbot are located in the guide here -> https://www.toontownfellowship.com/irc/")
