@@ -24,9 +24,11 @@ def gt(bot, trigger):
                 'bean counter', 'bean counters', 'number cruncher', 'number crunchers',
                 'money bag', 'money bags', 'loan shark', 'loan sharks',
                 'robber baron', 'robber barons', 'bottom feeder', 'bottom feeders',
-                'double talker', 'double talkers', 'big wig', 'big wigs',
-                'pencil pusher', 'pencil pushers', 'corporate raider', 'corporate raiders',
-                'big cheese', 'big cheeses']
+                'double talker', 'double talkers', 'ambulance chaser', 'ambulance chasers', 
+                'back stabber', 'back stabbers', 'spin doctor', 'spin doctors',
+                'legal eagle', 'legal eagles', 'big wig', 'big wigs',
+                'pencil pusher', 'pencil pushers', 'head hunter', 'head hunters',
+                'corporate raider', 'corporate raiders', 'big cheese', 'big cheeses']
             cogname = words[0] + ' ' + words[1]
             if any(b == cogname for b in cogs2):
                 bot.reply('Your invasion request has been submitted!')
@@ -34,8 +36,9 @@ def gt(bot, trigger):
             else:
                 bot.msg(trigger.nick, 'Please use the correct name for the cog! Try again in 30 seconds.  You can view a guide here: https://www.toontownfellowship.com/irc/')
         else:
-            cogs1 = ['two-face', 'tightwad', 'tightwads', 'bloodsucker',
-            'bloodsuckers', 'flunky', 'flunkys', 'flunkies',
+            cogs1 = ['telemarketer', 'telemarketers', 'two-face', 'tightwad',
+            'tightwads', 'bloodsucker', 'bloodsuckers', 'backstabber',
+            'backstabbers', 'flunky', 'flunkys', 'flunkies',
             'yesman', 'yesmen', 'micromanager', 'micromanagers',
             'downsizer', 'downsizers']
             if any(a == words[0] for a in cogs1):
