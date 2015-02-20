@@ -4,7 +4,7 @@ import willie.module
 @willie.module.rate(30) #30 second cooldown for one user
 def gt(bot, trigger):
     operator = '#TTFSinvasions' #this can also be a '#channel'
-    words = trigger.group(2).split(' ')
+    words = trigger.group(3).split(' ')
     if len(words) >= 1:
         if len(words) == 3:
             cogs3 = ['mover and shaker', 'mover & shaker',
